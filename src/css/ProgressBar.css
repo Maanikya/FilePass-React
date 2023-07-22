@@ -1,0 +1,14 @@
+.progressBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    width: 10%;
+}
+
+@media screen and (max-width: 720px) {
+    .progressBar{
+        height: 20%;
+        width: 20%;
+    }
+}
