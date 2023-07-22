@@ -16,11 +16,23 @@ export default function Landing() {
     const [file, setFile] = useState(null);
     const [password, setPassword] = useState("");
     const [uploadProgress, setUploadProgress] = useState(null);
+    const [receive, setReceive] = useState(true);
 
     useEffect(() => {
-        if (uploadProgress < 100) {
+        // Show receive button if there is no upload progress
+        if (uploadProgress == null) {
+            setReceive(true);
+        } 
+        
+        // Hide receive button when showing upload progress
+        else if (0 <= uploadProgress && uploadProgress < 100) {
+            setReceive(false);
             setUploadProgress(uploadProgress);
-        } else if (uploadProgress >= 100) {
+        } 
+        
+        // On complete upload, set success toast and still hide receive button
+        else if (uploadProgress >= 100) {
+            setReceive(false)
             successToast();
         }
     }, [uploadProgress]);
@@ -28,6 +40,7 @@ export default function Landing() {
     // Successful File Upload Toast
     const successToast = () => {
         const refreshPage = setTimeout(() => {
+            // Refresh the page after 5 seconds
             window.location.reload();
         }, 5000);
 
@@ -36,7 +49,7 @@ export default function Landing() {
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: { refreshPage },
-            pauseOnHover: true,
+            pauseOnHover: false,
             draggable: true,
             progress: undefined,
             theme: "dark",
@@ -52,7 +65,7 @@ export default function Landing() {
         }
     };
 
-    // Object Password search from Firebase Realtime Database
+    // Query Password from Firebase Realtime Database
     const checkPassword = async (password) => {
         const db = getDatabase();
         const fileRef = dbRef(db, `files/`);
@@ -192,6 +205,14 @@ export default function Landing() {
                         </div>
                     </button>
                 </form>
+                {receive && (
+                    <button class="receive-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span> Receive a File?
+                    </button>
+                )}
                 {uploadProgress && (
                     <div
                         style={{

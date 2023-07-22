@@ -23,7 +23,7 @@ export default function Footer() {
                         href="#gentle-wave"
                         x="48"
                         y="0"
-                        fill="rgba(0,255,255,0.7"
+                        fill="rgba(0,255,255,0.7)"
                     />
                     <use
                         href="#gentle-wave"
