@@ -22,17 +22,17 @@ export default function Landing() {
         // Show receive button if there is no upload progress
         if (uploadProgress == null) {
             setReceive(true);
-        } 
-        
+        }
+
         // Hide receive button when showing upload progress
         else if (0 <= uploadProgress && uploadProgress < 100) {
             setReceive(false);
             setUploadProgress(uploadProgress);
-        } 
-        
+        }
+
         // On complete upload, set success toast and still hide receive button
         else if (uploadProgress >= 100) {
-            setReceive(false)
+            setReceive(false);
             successToast();
         }
     }, [uploadProgress]);
@@ -206,12 +206,14 @@ export default function Landing() {
                     </button>
                 </form>
                 {receive && (
-                    <button class="receive-btn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span> Receive a File?
-                    </button>
+                    <Link to={"/receive"}>
+                        <button class="receive-btn">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span> Receive a File?
+                        </button>
+                    </Link>
                 )}
                 {uploadProgress && (
                     <div
