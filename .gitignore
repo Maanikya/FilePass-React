@@ -3,6 +3,7 @@
 # dependencies
 /References.txt
 /node_modules
+/function/node_modules
 /.pnp
 .pnp.js
 

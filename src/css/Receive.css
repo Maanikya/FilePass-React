@@ -1,3 +1,99 @@
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.how-to-link {
+    z-index: 1;
+    text-decoration: none;
+}
+
+.how-to-link:hover {
+    scale: 1.1;
+    transition: 400ms;
+}
+
+.how-to-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5px 15px;
+    gap: 15px;
+    background-color: #181717;
+    outline: 3px #181717 solid;
+    outline-offset: -3px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+    z-index: 1;
+}
+
+@media screen and (max-width: 720px) {
+    .how-to-btn {
+        padding: 2px 12px;
+    }
+}
+
+.how-to-btn .how-to-p {
+    color: white;
+    font-weight: 700;
+    font-size: 1em;
+    transition: 400ms;
+    z-index: 1;
+}
+
+.how-to-btn:hover {
+    background-color: white;
+}
+
+.how-to-btn:hover .how-to-p {
+    color: #181717;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.down {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.card3 {
+    width: 60px;
+    height: 45px;
+    outline: none;
+    border: none;
+    background: rgb(0, 0, 0);
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.github {
+    fill: white;
+}
+
+.card3:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: rgb(255, 255, 255);
+}
+
+.card3:hover .github {
+    fill: rgb(0, 0, 0);
+}
+
 .downloadInstruct {
     color: white;
     text-decoration: none;
@@ -16,7 +112,7 @@
 }
 
 @media screen and (max-width: 720px) {
-    .loader{
+    .loader {
         margin-top: 2rem;
     }
 }
@@ -92,8 +188,8 @@
 }
 
 @media screen and (max-width: 720px) {
-    .cube{
-        margin-top: 5rem;
+    .cube {
+        margin-top: 3rem;
     }
 }
 
@@ -200,4 +296,71 @@
     background: #7dff99;
     transform: rotateX(90deg) translateZ(14px);
     box-shadow: 0px 0px 10px #7dff99;
+}
+
+.download-button {
+    --main-focus: #2d8cf0;
+    --font-color: #dedede;
+    --bg-color-sub: #222;
+    --bg-color: #323232;
+    --main-color: #dedede;
+    position: relative;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.download-button,
+.button__icon,
+.button__text {
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.download-button .button__text {
+    transform: translateX(21px);
+    color: var(--font-color);
+    font-weight: 600;
+}
+
+.download-button .button__icon {
+    position: absolute;
+    transform: translateX(109px);
+    height: 100%;
+    width: 39px;
+    background-color: var(--bg-color-sub);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.download-button .svg {
+    width: 20px;
+    fill: var(--main-color);
+}
+
+.download-button:hover {
+    background: var(--bg-color);
+}
+
+.download-button:hover .button__text {
+    color: transparent;
+}
+
+.download-button:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+}
+
+.download-button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px var(--main-color);
 }
