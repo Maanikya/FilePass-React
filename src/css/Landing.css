@@ -67,6 +67,44 @@ input {
     color: #181717;
 }
 
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.down {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.card3 {
+    width: 60px;
+    height: 45px;
+    outline: none;
+    border: none;
+    background: rgb(0, 0, 0);
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.github {
+    fill: white;
+}
+
+.card3:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: rgb(255, 255, 255);
+}
+
+.card3:hover .github {
+    fill: rgb(0, 0, 0);
+}
+
 .form-div-1 {
     display: grid;
     gap: 0.8rem;
