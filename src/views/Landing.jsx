@@ -13,7 +13,6 @@ import "../css/Landing.css";
 import "../css/ProgressBar.css";
 
 export default function Landing() {
-   
     const [file, setFile] = useState(null);
     const [password, setPassword] = useState("");
     const [uploadProgress, setUploadProgress] = useState(null);
@@ -205,6 +204,12 @@ export default function Landing() {
             url,
             pwd,
         });
+    };
+
+    // Handle Github Redirect
+    const handleGithub = () => {
+        const github = "https://github.com/Maanikya/FilePass-React";
+        window.open(github, "_blank");
     };
 
     return (
