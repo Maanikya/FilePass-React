@@ -162,7 +162,7 @@ export default function Landing() {
             },
             (error) => {
                 // Handle unsuccessful uploads
-                errorToast("Error uploading the file!");
+                errorToast(`Error uploading the file!: ${error}`);
             },
             () => {
                 // Handle successful uploads on complete
@@ -220,7 +220,7 @@ export default function Landing() {
                     </Link>
                     <div className="main">
                         <div className="down">
-                            <button className="card3">
+                            <button className="card3" onClick={handleGithub}>
                                 <svg
                                     viewBox="0 0 30 30"
                                     width="30px"
