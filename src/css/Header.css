@@ -1,20 +1,14 @@
-header{
+.header{
     position: relative;
     z-index: 1;
 }
 
-button{
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 1;
-}
-
-h1::before {
+.header-p::before {
     transform: scaleX(0);
     transform-origin: bottom right;
 }
 
-h1::before {
+.header-p::before {
     content: " ";
     display: block;
     position: relative;
@@ -27,7 +21,7 @@ h1::before {
     transition: transform 0.3s ease;
 }
 
-h1 {
+.header-p {
     font-family: "Lato", sans-serif;
     position: relative;
 }

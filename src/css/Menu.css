@@ -1,0 +1,95 @@
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.how-to-link {
+    z-index: 1;
+    text-decoration: none;
+}
+
+.how-to-link:hover {
+    scale: 1.1;
+    transition: 400ms;
+}
+
+.how-to-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5px 15px;
+    gap: 15px;
+    background-color: #181717;
+    outline: 3px #181717 solid;
+    outline-offset: -3px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+    z-index: 1;
+}
+
+@media screen and (max-width: 720px) {
+    .how-to-btn {
+        padding: 2px 12px;
+    }
+}
+
+.how-to-btn .how-to-p {
+    color: white;
+    font-weight: 700;
+    font-size: 1em;
+    transition: 400ms;
+    z-index: 1;
+}
+
+.how-to-btn:hover {
+    background-color: white;
+}
+
+.how-to-btn:hover .how-to-p {
+    color: #181717;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.down {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.card3 {
+    width: 60px;
+    height: 45px;
+    outline: none;
+    border: none;
+    background: rgb(0, 0, 0);
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.github {
+    fill: white;
+}
+
+.card3:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: rgb(255, 255, 255);
+}
+
+.card3:hover .github {
+    fill: rgb(0, 0, 0);
+}

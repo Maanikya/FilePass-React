@@ -1,16 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "../css/Header.css";
 
 export default function Header() {
 
     return (
-        <header>
-            <h1>
+        <header className="header">
+            <p className="header-p">
                 <a href="/" className="title">
                     File Pass
                 </a>
-            </h1>
+            </p>
         </header>
     );
 }
