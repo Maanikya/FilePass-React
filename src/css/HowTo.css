@@ -27,6 +27,16 @@
     -webkit-text-fill-color: transparent;
 }
 
+@media screen and (max-width: 720px) {
+    .instructions-h3{
+        font-size: 20px;
+    }
+
+    .instruct-p{
+        font-size: 15px;
+    }
+}
+
 .imready-btn {
     position: relative;
     margin-top: 2rem;

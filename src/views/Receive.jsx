@@ -31,6 +31,19 @@ export default function Receive() {
         });
     };
 
+    const errorToast = async (msg) => {
+        toast.error(msg, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
+    };
+
     // Query Password from Firebase Realtime Database
     const checkPassword = async () => {
         const db = getDatabase();
@@ -47,7 +60,6 @@ export default function Receive() {
         for (const [key, value] of Object.entries(data)) {
             // If that password already exists in the database, Give a toast
             if (password === value.pwd) {
-                console.log(value);
                 setDownloadLink(value.url);
                 setFileName(value.fileName);
                 setFileSize(value.fileSize);
@@ -78,14 +90,13 @@ export default function Receive() {
             window.open(downloadLink, "_black");
             const functions = getFunctions();
             const deleteFile = httpsCallable(functions, "Deletion");
-            const response = await deleteFile({
+            await deleteFile({
                 filePath: filePath,
                 pwd: password,
             });
-            console.log(response);
+            // console.log(response);
         } catch (err) {
-            console.log(err);
-            alert(err);
+            errorToast(`Error Download Failed: ${err}`);
         }
     };
 

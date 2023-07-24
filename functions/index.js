@@ -28,7 +28,7 @@ exports.Deletion = functions.https.onCall(async (data, context) => {
       } catch (error) {
         console.error("Error deleting file from Firebase Storage:", error);
       }
-    }, 60000); // 1 minute in milliseconds
+    }, 1800000); // 1 minute in milliseconds
 
     return "Success";
   } catch (error) {
