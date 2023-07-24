@@ -160,7 +160,7 @@ export default function Receive() {
                             </svg>
                         </span>
                     </button>
-                    <h4 style={{ color: "whitesmoke" }}>
+                    <h4 className="fileSize">
                         File Size: {fileSize}
                     </h4>
                 </>
