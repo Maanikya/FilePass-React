@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ref as storageRef, getStorage } from "firebase/storage";
+import { ref as storageRef } from "firebase/storage";
 import { getDatabase, get, ref as dbRef } from "firebase/database";
 import { getFunctions, httpsCallable } from "firebase/functions";
 import { ToastContainer, toast } from "react-toastify";
@@ -64,7 +64,7 @@ export default function Receive() {
         if (password && (await checkPassword())) {
             setAnimation(false);
             setDownloadBtn(true);
-        } else if ((await checkPassword()) == 0) {
+        } else if ((await checkPassword()) === 0) {
             setAnimation(false);
             setDownloadBtn(true);
             setPassword("");

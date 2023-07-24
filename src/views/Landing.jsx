@@ -13,7 +13,7 @@ import "../css/Landing.css";
 import "../css/ProgressBar.css";
 
 export default function Landing() {
-    const [records, setRecords] = useState([]);
+   
     const [file, setFile] = useState(null);
     const [password, setPassword] = useState("");
     const [uploadProgress, setUploadProgress] = useState(null);
