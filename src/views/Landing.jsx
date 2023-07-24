@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { storage } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -14,7 +14,8 @@ import "../css/Landing.css";
 import "../css/ProgressBar.css";
 
 export default function Landing() {
-    const [file, setFile] = useState(null);
+    const [file, setFile] = useState(undefined);
+    const fileRef = useRef(null);
     const [password, setPassword] = useState("");
     const [uploadProgress, setUploadProgress] = useState(null);
     const [receive, setReceive] = useState(true);
@@ -71,6 +72,7 @@ export default function Landing() {
         });
     };
 
+    // Error toast
     const errorToast = async (msg) => {
         toast.error(msg, {
             position: "top-center",
@@ -84,14 +86,33 @@ export default function Landing() {
         });
     };
 
+    // Check for file size on upload
+    const handleFileChange = (e) => {
+        if (e.target.files[0]) {
+            const fileSizeInBytes = e.target.files[0].size;
+            const fileSizeInMB = fileSizeInBytes / (1024 * 1024);
+
+            if (fileSizeInMB > 500) {
+                warnToast("File Size must be less than 500MB");
+                // setFileApproval(false);
+                fileRef.current.value = "";
+                setFile(undefined);
+            } else if (fileSizeInMB <= 500) {
+                // setFileApproval(true);
+                setFile(e.target.files[0]);
+            }
+        }
+    };
+
     // Submit File and Password Function
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         if (file && password) {
             if ((await checkPassword(password)) === 0) {
                 try {
                     await uploadFile();
-                    setFile(null);
+                    setFile(undefined);
                     setPassword("");
                 } catch (err) {
                     errorToast("Something went wrong!");
@@ -127,10 +148,7 @@ export default function Landing() {
 
     // Upload File Function
     const uploadFile = async () => {
-        if (file == null) return;
-
         const fileRef = ref(storage, `files/${file.name}`);
-
         const uploadTask = uploadBytesResumable(fileRef, file);
 
         uploadTask.on(
@@ -223,9 +241,8 @@ export default function Landing() {
                         <input
                             type="file"
                             className="fileInput"
-                            onChange={(e) => {
-                                setFile(e.target.files[0]);
-                            }}
+                            onChange={handleFileChange}
+                            ref={fileRef}
                             required
                         />
 

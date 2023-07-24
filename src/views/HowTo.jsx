@@ -9,7 +9,7 @@ export default function HowTo() {
         <div className="App">
             <Header />
             <h4 className="instructions-h3">How to Upload?</h4>
-            <p className="instruct-p">1. Select a File</p>
+            <p className="instruct-p">1. Select a File less than 500MB in size</p>
             <br />
             <p className="instruct-p">
                 2. Enter a Password to be associated with that File
