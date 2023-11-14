@@ -90,7 +90,7 @@ export default function Receive() {
             window.open(downloadLink, "_black");
             const functions = getFunctions();
             const deleteFile = httpsCallable(functions, "Deletion");
-            await deleteFile({
+            const response = await deleteFile({
                 filePath: filePath,
                 pwd: password,
             });
