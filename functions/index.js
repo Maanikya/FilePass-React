@@ -22,7 +22,7 @@ exports.Deletion = functions.https.onCall(async (data, context) => {
     /* Wait for 1 minute (60 seconds) before deleting the file
     and its metadata */
 
-    setTimeout(async () => {
+    const response = setTimeout(async () => {
       try {
         await deleteRecord();
         await admin.storage().bucket().file(filePath).delete();
@@ -32,7 +32,7 @@ exports.Deletion = functions.https.onCall(async (data, context) => {
       }
     }, 1800000); // 1 minute in milliseconds
 
-    return "Success";
+    return response;
   } catch (error) {
     console.error("Error scheduling file deletion:", error);
   }
