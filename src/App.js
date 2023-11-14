@@ -6,6 +6,8 @@ import ParticlesAnime from "./components/Particles";
 import HowTo from "./views/HowTo";
 import Receive from "./views/Receive";
 
+
+
 function App() {
 
     return (
