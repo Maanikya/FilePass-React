@@ -26,7 +26,7 @@ exports.Deletion = functions.https.onCall(async (data, context) => {
       try {
         await deleteRecord();
         await admin.storage().bucket().file(filePath).delete();
-        console.log("File deleted from Firebase Storage:", filePath);
+        // console.log("File deleted from Firebase Storage:", filePath);
       } catch (error) {
         console.error("Error deleting file from Firebase Storage:", error);
       }
