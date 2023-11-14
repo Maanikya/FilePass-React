@@ -9,7 +9,7 @@ exports.Deletion = functions.https.onCall(async (data, context) => {
     const db = admin.database();
     const fileRef = db.ref("files");
     const snapshot = await fileRef.once("value");
-    const fileData = snapshot.val();
+    const fileData = await snapshot.val();
 
     const deleteRecord = async () => {
       for (const [key, value] of Object.entries(fileData)) {
@@ -32,7 +32,7 @@ exports.Deletion = functions.https.onCall(async (data, context) => {
       }
     }, 1800000); // 1 minute in milliseconds
 
-    return response;
+    return ("File deleted from Firebase Storage:", filePath);
   } catch (error) {
     console.error("Error scheduling file deletion:", error);
   }
