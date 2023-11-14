@@ -94,7 +94,7 @@ export default function Receive() {
                 filePath: filePath,
                 pwd: password,
             });
-            // console.log(response);
+            console.log(response);
         } catch (err) {
             errorToast(`Error Download Failed: ${err}`);
         }
