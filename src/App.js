@@ -5,7 +5,7 @@ import "./Background.css";
 import ParticlesAnime from "./components/Particles";
 import HowTo from "./views/HowTo";
 import Receive from "./views/Receive";
-
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
                 </Routes>
             </BrowserRouter>
             <ParticlesAnime />
+            <SpeedInsights />
         </>
     );
 }
